@@ -1,0 +1,27 @@
+@use "utils";
+
+.forecast {
+	color: white;
+	text-align: center;
+	background-color: #1e213a;
+	width: 120px;
+	height: 177px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-block: 18px;
+	row-gap: 0.6rem;
+	margin-bottom: 32px;
+	img {
+		width: 57px;
+		height: auto;
+		align-self: center;
+	}
+	.predictions {
+		justify-self: flex-end;
+		height: 100%;
+		display: flex;
+		align-items: flex-end;
+		gap: 16px;
+	}
+}
