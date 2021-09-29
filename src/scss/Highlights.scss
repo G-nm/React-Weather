@@ -2,61 +2,78 @@
 	background-color: #100e1d;
 	color: #fff;
 	text-align: center;
+	padding-bottom: 50px;
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	padding-inline: 24px;
+
+	.title {
+		align-self: flex-start;
+	}
 }
-progress {
+.itemContainer {
+	background-color: #1e213a;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 6px;
+	padding-block: 22px;
+
+	h3 {
+		font-weight: 500;
+		font-size: 16px;
+	}
+	p:first-of-type {
+		font-size: 64px;
+		font-weight: 700;
+
+		span {
+			font-weight: 500;
+			font-size: 36px;
+		}
+	}
+}
+
+.progressbar {
+	width: 100%;
+	height: 38px;
+	// background-color: green;
+}
+.progressLoader {
+	width: 80%;
 	height: 8px;
-	width: 229px;
 	background-color: white;
 	position: relative;
+	margin: 0 auto;
+	border-radius: 50px;
 }
-
-progress::-webkit-progress-bar {
-	border-radius: 20px;
-}
-progress::-moz-progress-bar {
-	border-radius: 20px;
+.progressLoader::before {
+	content: "";
+	position: absolute;
+	width: 84%;
+	height: 8px;
 	background-color: #ffec65;
-	// background-color: black;
+	left: 0px;
+	border-radius: 50px;
+	bottom: 0px;
 }
-progress::-moz-progress-bar::before {
-	content: "80%";
+.progressLoader::after {
+	content: "%";
 	position: absolute;
-	right: 0;
-	top: -125%;
-	color: white;
+	right: 0px;
+	top: 12px;
+	font-weight: 700;
+	font-size: 12px;
+	color: #a09fb1;
 }
-progress::-webkit-progress-value {
-	border-radius: 20px;
-	background-color: #ffec65;
+.percentages {
+	width: 80%;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+	font-weight: 700;
+	font-size: 12px;
+	color: #a09fb1;
 }
-progress::before {
-	// appearance: none;
-	content: "80%";
-	position: absolute;
-	// right: 0;
-	// top: -125%;
-	color: white;
-}
-
-progress[value] {
-	appearance: initial;
-	border-radius: 20px;
-}
-progress[value]::-webkit-progress-bar {
-	background-color: #fff;
-}
-progress[value]::before {
-	content: "80%";
-	position: absolute;
-	// right: 0;
-	// top: -125%;
-	color: white;
-	background-color: red;
-}
-
-// progress[value]::-webkit-progress-value::before {
-// 	content: "80%";
-// 	position: absolute;
-// 	right: 0;
-// 	top: -125%;
-// }
