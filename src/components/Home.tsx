@@ -1,11 +1,15 @@
+import { lazy, Suspense } from "react";
 import styles from "../scss/Home.scss";
 import CurrentForecast from "./CurrentForecast";
 
 import { FutureForecast } from "./FutureForecast";
 import Highlights from "./Highlights";
+const Search = lazy(() => import("./Search"));
+// import Search from "./Search";
 
 export const Home = () => {
 	let [count, setCount] = React.useState(0);
+	let [search, setSearch] = React.useState(false);
 	let num = [1, 2, 3, 4, 5];
 
 	return (
@@ -15,11 +19,19 @@ export const Home = () => {
 				<div className={styles.functionBtns}>
 					<button
 						className={`${styles.btnSearch} ${styles.btn} `}
-						onClick={() => setCount(++count)}
+						onClick={() => {
+							setSearch(true);
+							setCount(++count);
+						}}
+						aria-label="Search"
 					>
 						Search for places
 					</button>
-					<button className={`${styles.btnLocation} ${styles.btn}`}>
+					<button
+						className={`${styles.btnLocation} ${styles.btn}`}
+						name="get current location"
+						aria-label="Current Location"
+					>
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							height="24px"
@@ -32,13 +44,19 @@ export const Home = () => {
 						</svg>
 					</button>
 				</div>
+
 				<CurrentForecast count={count} />
 			</div>
+
+			<Suspense fallback={<div>Loading ....</div>}>
+				<Search setSearch={setSearch} search={search} />
+			</Suspense>
+
 			<section className={styles.container}>
 				<h2 className={styles.hidden}>Weather predictions</h2>
 				<article className={styles.predictionContainer}>
-					{num.map(() => {
-						return <FutureForecast />;
+					{num.map((_, index) => {
+						return <FutureForecast key={index} />;
 					})}
 				</article>
 			</section>

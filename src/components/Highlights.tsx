@@ -16,7 +16,7 @@ const Highlights = () => {
 			<article className={styles.itemContainer}>
 				<h3>Wind Status</h3>
 				<p>
-					7 <span>mph</span>
+					7<span>mph</span>
 				</p>
 				<p>WSW</p>
 			</article>
@@ -35,8 +35,20 @@ const Highlights = () => {
 					<div className={styles.progressLoader}></div>
 				</div>
 			</article>
-			<article></article>
-			<article></article>
+			<article className={styles.itemContainer}>
+				<h3>Visibility</h3>
+				<p>
+					6,4
+					<span> miles</span>
+				</p>
+			</article>
+			<article className={styles.itemContainer}>
+				<h3>Air Pressure</h3>
+				<p>
+					998
+					<span> mb</span>
+				</p>
+			</article>
 		</section>
 	);
 };

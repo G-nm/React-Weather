@@ -8,13 +8,13 @@ type currentForecast = {
 const CurrentForecast = ({ count }: currentForecast) => {
 	return (
 		<article className={styles.weatherContainer}>
-			<img src={weatherIcon} alt="Snow" />
+			<img src={weatherIcon} alt="Snow" width="150" />
 			<h1 className={styles.temperature}>
 				{count}
 				<sub>&deg;C</sub>
 			</h1>
 			<section className={styles.weatherInformation}>
-				<h3 className={styles.weather}>Shower</h3>
+				<h4 className={styles.weather}>Shower</h4>
 				<div className={styles.weatherDate}>
 					<span>Today</span>
 					<sub className={styles.dot}> . </sub>
