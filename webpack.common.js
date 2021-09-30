@@ -2,6 +2,8 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { ProvidePlugin } = require("webpack");
 const ForkTs = require("fork-ts-checker-webpack-plugin");
+const ts = require("typescript");
+// const miniSvgDataURI = require("mini-css-extract-plugin");
 module.exports = {
 	entry: { main: "./src/index.tsx" },
 	resolve: {
@@ -23,6 +25,7 @@ module.exports = {
 							sourcemap: true,
 							logLevel: "verbose",
 							color: true,
+							tsconfigRaw: ts.readConfigFile("tsconfig.json", ts.sys.readFile),
 						},
 					},
 				],
@@ -31,6 +34,11 @@ module.exports = {
 				test: /\.(png|jpe?g|gif)$/i,
 				type: "asset/resource",
 			},
+			{
+				test: /\.svg/,
+				type: "asset/inline",
+				use: "svgo-loader",
+			},
 		],
 	},
 	plugins: [
@@ -38,6 +46,10 @@ module.exports = {
 			template: path.resolve(__dirname, "index.html"),
 			favicon: path.resolve(__dirname, "images/devchallenges.png"),
 			title: "Devchallenges",
+			meta: {
+				description:
+					"A weather app which allows users to search for weather data",
+			},
 		}),
 		new ProvidePlugin({
 			React: "react",
