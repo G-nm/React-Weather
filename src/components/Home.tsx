@@ -45,7 +45,7 @@ export const Home = () => {
 					</button>
 				</div>
 
-				<CurrentForecast count={count} />
+				<CurrentForecast />
 			</div>
 
 			<Suspense fallback={<div>Loading ....</div>}>
