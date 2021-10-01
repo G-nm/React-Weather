@@ -3,14 +3,15 @@ const { merge } = require("webpack-merge");
 const common = require("./webpack.common");
 const webpackBundleAnalyzer =
 	require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
-
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
+/** @type {import('webpack').Configuration} */
 module.exports = merge(common, {
 	mode: "production",
 	output: {
 		filename: "[name].[contenthash].js",
 		path: path.resolve(__dirname, "dist"),
+		assetModuleFilename: "images/[hash][ext][query]",
 		clean: true,
 	},
 	module: {
