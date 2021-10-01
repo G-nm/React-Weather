@@ -1,18 +1,15 @@
 import styles from "../scss/CurrentForecast.scss";
 import weatherIcon from "../../images/Shower.png";
 
-type currentForecast = {
-	count: number;
-};
-
-const CurrentForecast = ({ count }: currentForecast) => {
+const CurrentForecast = React.memo(() => {
 	return (
 		<article className={styles.weatherContainer}>
 			<img src={weatherIcon} alt="Snow" width="150" />
 			<h1 className={styles.temperature}>
-				{count}
+				10
 				<sub>&deg;C</sub>
 			</h1>
+
 			<section className={styles.weatherInformation}>
 				<h4 className={styles.weather}>Shower</h4>
 				<div className={styles.weatherDate}>
@@ -39,6 +36,6 @@ const CurrentForecast = ({ count }: currentForecast) => {
 			</section>
 		</article>
 	);
-};
+});
 
 export default CurrentForecast;
