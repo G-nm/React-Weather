@@ -9,7 +9,7 @@ import styles from "../scss/Highlights.scss";
 /* TODO Make another component under this which wiil accept the type above and return
 a component which will have the above type */
 
-const Highlights = () => {
+const Highlights = React.memo(() => {
 	return (
 		<section className={styles.highlightsContainer}>
 			<h2 className={styles.title}>Today's Highlights</h2>
@@ -51,6 +51,6 @@ const Highlights = () => {
 			</article>
 		</section>
 	);
-};
+});
 
 export default Highlights;
