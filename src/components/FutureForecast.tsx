@@ -1,7 +1,7 @@
 import styles from "../scss/FutureForecast.scss";
 import hail from "../../images/Hail.png";
 
-export const FutureForecast = () => {
+const FutureForecast = () => {
 	return (
 		<article className={styles.forecast}>
 			<h4>Tomorrow</h4>
@@ -13,3 +13,4 @@ export const FutureForecast = () => {
 		</article>
 	);
 };
+export default FutureForecast;
