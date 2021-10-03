@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { ProvidePlugin } = require("webpack");
 const ForkTs = require("fork-ts-checker-webpack-plugin");
 const ts = require("typescript");
-// const miniSvgDataURI = require("mini-css-extract-plugin");
+
 module.exports = {
 	entry: { main: "./src/index.tsx" },
 	resolve: {
