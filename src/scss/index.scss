@@ -5,14 +5,14 @@
 	margin: 0;
 	box-sizing: border-box;
 }
-body,
-html,
-:global(#root),
+
 :global(.hero) {
 	font-family: "Raleway", sans-serif;
-	height: 100%;
+	// height: 100%;
 	background-color: #100e1d;
 }
-// todo 1.Set the weather hero background color
-
-// todo 1.Set the weather hero background color
+:global(#root) {
+	position: relative;
+	// height: 100%;
+	font-family: "Raleway", sans-serif;
+}
