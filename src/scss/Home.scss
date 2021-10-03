@@ -17,33 +17,6 @@
 	min-height: 100%;
 	position: relative;
 	z-index: 1;
-
-	.functionBtns {
-		padding: 18px 11px;
-		display: flex;
-		justify-content: space-between;
-		z-index: -1;
-		position: relative;
-		width: 100%;
-
-		.btn {
-			border: none;
-			background-color: #6e707a;
-			color: white;
-			font-size: 16px;
-		}
-		.btnSearch {
-			padding: 10px 10px;
-		}
-		.btnLocation {
-			width: 40px;
-			height: 40px;
-			border-radius: 50%;
-			svg {
-				vertical-align: middle;
-			}
-		}
-	}
 }
 .predictionContainer {
 	padding-inline: 3.2rem;

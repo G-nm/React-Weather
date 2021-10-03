@@ -1,95 +1,19 @@
-@import "utils";
+@use "utils";
 
 .searchLocation {
-	position: fixed;
-	height: 100%;
-	min-height: 100vh;
-	max-height: 100%;
+	position: absolute;
+	min-height: 100%;
 	width: 100%;
-	z-index: 3;
+	z-index: 1;
 	background-color: #1e213a;
-	padding: 18px 12px 0 12px;
+	padding: 0px 12px 1rem 12px;
 	color: white;
 	top: 0;
 	transition-property: transform, visibility;
 	transition-delay: 0s, 0.5s;
 	transition-duration: 0.5s;
 
-	.closeBtn {
-		display: block;
-		margin-left: auto;
-		margin-right: 5px;
-		background: transparent;
-		border: none;
-	}
-	.searchForm {
-		display: flex;
-		gap: 12px;
-		font-size: 16px;
-		position: relative;
-		margin-top: 30px;
-		.locationContainer::before {
-			content: "";
-			background-image: url("../../images/svg/search_black_24dp.svg");
-			background-repeat: no-repeat;
-			background-size: 60%;
-			background-position: center;
-			position: absolute;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			font-size: 18px;
-			top: 5;
-			width: 49px;
-			height: 100%;
-			transition-delay: 0s, 0.3s;
-			transition-property: transform, opacity;
-			transition-duration: 0.5s, 0.15s;
-		}
-		.locationContainer:focus-within::before {
-			opacity: 0;
-			transform: translateX(-100%);
-			transition-property: transform, opacity;
-			transition-delay: 0.1s, 0s;
-			transition-duration: 0.3s, 0.15s;
-		}
-		.locationContainer:focus-within input:first-of-type {
-			padding-left: 15px;
-			transition: all;
-			transition-delay: 0.2s;
-			transition-duration: 0.3s;
-		}
-		.locationContainer {
-			flex-grow: 1;
-
-			border-radius: 0;
-		}
-		.location {
-			appearance: none;
-			border-radius: 0;
-			background: transparent;
-			outline: none;
-			border: 1px solid #e7e7eb;
-			padding: 15px 0 15px 49px;
-
-			position: relative;
-			color: #616475;
-			font-size: 18px;
-			// width: 262px;
-			width: 100%;
-			transition: padding-left;
-			transition-duration: 0.3s;
-			transition-delay: 0s;
-		}
-		.searchBtn {
-			color: white;
-			background-color: #3c47e9;
-			padding: 15px;
-			font-weight: 500;
-			border: none;
-			font-size: 17px;
-			flex-grow: 0;
-		}
+	.sectionResults {
 	}
 }
 .visibility {
