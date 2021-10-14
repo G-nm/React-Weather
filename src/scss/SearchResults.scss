@@ -1,0 +1,33 @@
+.city {
+	width: 100%;
+	border: none;
+	background-color: transparent;
+	height: 64px;
+	display: flex;
+	justify-content: space-between;
+	padding: 23px 12px 23px 12px;
+	cursor: pointer;
+
+	&:hover {
+		border: 1px solid #616475;
+	}
+
+	span:nth-child(1) {
+		color: white;
+		font-size: 16px;
+		font-weight: 500;
+	}
+	&:hover > span:nth-child(2) {
+		visibility: visible;
+	}
+	span:nth-child(2) {
+		color: #616475;
+		font-size: 2rem;
+		align-self: center;
+		visibility: hidden;
+	}
+}
+.noresults {
+	text-align: center;
+	padding-block: 23px;
+}
