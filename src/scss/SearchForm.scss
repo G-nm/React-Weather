@@ -7,6 +7,7 @@
 	// background-color: white;
 	z-index: 1;
 	padding-bottom: 1rem;
+	padding-inline: 0.5em;
 	.closeBtn {
 		display: block;
 		margin-left: auto;
@@ -19,7 +20,7 @@
 		gap: 12px;
 		font-size: 16px;
 		position: relative;
-		margin-top: 30px;
+		margin-block: 30px;
 		.locationContainer::before {
 			content: "";
 			background-image: url("../../images/svg/search_black_24dp.svg");
@@ -62,7 +63,6 @@
 			outline: none;
 			border: 1px solid #e7e7eb;
 			padding: 15px 0 15px 49px;
-
 			position: relative;
 			color: #616475;
 			font-size: 18px;

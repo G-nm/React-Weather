@@ -1,29 +1,33 @@
 .weatherContainer {
-	width: 55%;
-	// height: 100%;
-	min-height: 100vh;
-	margin: 0 auto;
+	width: 100%;
+	min-height: calc(100vh - 76px);
 	padding-top: 3rem;
-	display: flex;
-	flex-direction: column;
+	display: grid;
+	grid-template-rows: 0.8fr 0.5fr 1fr;
+	place-items: center;
 
 	img {
 		width: 150px;
 		height: auto;
-		align-self: center;
-		justify-self: center;
+		// align-self: start;
+	}
+	@media (min-width: 1025px) {
+		img {
+			width: 220px;
+			height: auto;
+		}
 	}
 	.temperature {
 		color: white;
-		padding-top: 4rem;
 		text-align: center;
 		font-size: 9rem;
 		font-weight: 500;
+		align-self: center;
 
 		sub {
-			font-size: 4rem;
+			font-size: 3rem;
 			vertical-align: baseline;
-			font-weight: 400;
+			font-weight: 500;
 			color: rgba(255, 255, 255, 0.575);
 		}
 	}
@@ -31,26 +35,36 @@
 		color: rgba(255, 255, 255, 0.575);
 		text-align: center;
 		font-weight: 600;
+		align-self: center;
+		width: 55%;
+		display: grid;
+		align-items: start;
+		grid-template-rows: 0.8fr 0.3fr 1.3fr;
+
 		.weather {
-			padding: 1rem 0;
 			font-size: 2rem;
 			text-align: center;
+			align-self: start;
 		}
 		.weatherDate {
-			padding: 1rem 0;
-			font-size: 18px;
-			word-spacing: 3px;
+			font-size: calc(1rem + 2px);
+
+			align-self: start;
+			font-weight: 400;
+			padding-top: 2rem;
+
 			.dot {
 				vertical-align: text-bottom;
 				display: inline-block;
 				padding-inline: 15px;
-				font-size: 30px;
+				font-size: calc(2rem - 2px);
 			}
 		}
 		.weatherLocation {
-			padding: 1rem 0 3rem;
+			align-self: center;
 			span {
 				font-size: 18px;
+				font-weight: 500;
 			}
 		}
 		#Layer_1 {

@@ -14,6 +14,13 @@
 	}
 	.btnSearch {
 		padding: 10px 10px;
+		// text-decoration: none;
+
+		span {
+			font-size: 16px;
+			font-weight: 100;
+			// background-color: green;
+		}
 	}
 	.btnLocation {
 		width: 40px;

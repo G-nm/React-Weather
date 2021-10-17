@@ -1,17 +1,25 @@
+.wrapper {
+	padding-bottom: 50px;
+}
+.title {
+	color: white;
+	background-color: #100e1d;
+	padding-bottom: 32px;
+}
 .highlightsContainer {
 	background-color: #100e1d;
 	color: #fff;
 	text-align: center;
-	padding-bottom: 50px;
-	display: flex;
-	flex-direction: column;
+	display: grid;
 	gap: 2rem;
-	padding-inline: 24px;
-
-	.title {
-		align-self: flex-start;
+}
+@media (min-width: 1025px) {
+	.highlightsContainer {
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: repeat(2, 1fr);
 	}
 }
+
 .itemContainer {
 	background-color: #1e213a;
 	display: flex;
@@ -36,6 +44,25 @@
 	}
 }
 
+.winddirection {
+	// background: red;
+	display: flex;
+	align-items: center;
+	span:nth-child(1) {
+		background-color: #a09fb1;
+		height: 20px;
+		width: 20px;
+		border-radius: 50%;
+		display: grid;
+		place-items: center;
+		margin-right: 1rem;
+		svg {
+			width: 10px;
+			height: 10px;
+		}
+	}
+}
+
 .progressbar {
 	width: 100%;
 	height: 38px;
@@ -48,17 +75,17 @@
 	position: relative;
 	margin: 0 auto;
 	border-radius: 50px;
+	.progressIndicator {
+		position: absolute;
+		// width: 44%;
+		height: 8px;
+		background-color: #ffec65;
+		left: 0px;
+		border-radius: 50px;
+		bottom: 0px;
+	}
 }
-.progressLoader::before {
-	content: "";
-	position: absolute;
-	width: 84%;
-	height: 8px;
-	background-color: #ffec65;
-	left: 0px;
-	border-radius: 50px;
-	bottom: 0px;
-}
+
 .progressLoader::after {
 	content: "%";
 	position: absolute;

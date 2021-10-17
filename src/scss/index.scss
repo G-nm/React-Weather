@@ -8,11 +8,19 @@
 
 :global(.hero) {
 	font-family: "Raleway", sans-serif;
-	// height: 100%;
-	background-color: #100e1d;
+	// min-height: 100vh;
 }
 :global(#root) {
 	position: relative;
 	// height: 100%;
 	font-family: "Raleway", sans-serif;
+	background-color: #100e1d;
+}
+@media (min-width: 1025px) {
+	:global(.hero) {
+		position: relative;
+	}
+	:global(#root) {
+		min-height: 100vh;
+	}
 }
