@@ -29,7 +29,12 @@ module.exports = merge(common, {
 						options: { modules: true, importLoaders: 1 },
 					},
 					{ loader: "postcss-loader" },
-					{ loader: "sass-loader" },
+					{
+						loader: "sass-loader",
+						options: {
+							implementation: require("sass"),
+						},
+					},
 				],
 			},
 		],
