@@ -18,8 +18,6 @@ const useOnload = (
 
 				setCity(response.city);
 			} catch (error) {
-				const err = error as Error;
-				setError(err.name);
 				setCity("Nairobi");
 			}
 		};
