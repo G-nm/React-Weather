@@ -10,8 +10,10 @@ const HeroSearch = ({ setSearch }: SearchProps) => {
 					setSearch(true);
 				}}
 				aria-label="Search"
+				aria-controls="sidenav"
+				type="button"
 			>
-				Search for places
+				<span>Search for places</span>
 			</button>
 			<button
 				className={`${styles.btnLocation} ${styles.btn}`}
