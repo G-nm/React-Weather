@@ -1,4 +1,10 @@
-import { Home } from "./components/Home";
+import Home from "./components/Home";
+import { WeatherProvider } from "./components/WeatherProvider";
 import "./scss/index.scss";
 
-ReactDOM.render(<Home />, document.getElementById("root"));
+ReactDOM.render(
+	<WeatherProvider>
+		<Home />
+	</WeatherProvider>,
+	document.getElementById("root")
+);
