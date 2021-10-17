@@ -30,7 +30,7 @@ const SearchResults = ({
 		return <ErrorComponent errormessage={error} />;
 	} else {
 		return (
-			<>
+			<article className={styles.resultslist}>
 				{data.length ? (
 					data.map(({ title, woeid }, index) => {
 						count = true;
@@ -49,7 +49,7 @@ const SearchResults = ({
 				) : count ? (
 					<div className={styles.noresults}>No results found</div>
 				) : null}
-			</>
+			</article>
 		);
 	}
 };
