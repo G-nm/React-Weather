@@ -21,7 +21,7 @@ export const useAbortFetch = (
 		let fetchLocation = async () => {
 			let result = await fetch(
 				`https://www.metaweather.com/api/location/search/?query=${location}`,
-				{ signal }
+				{ signal, method: "GET", mode: "cors" }
 			);
 			const response = await result.json();
 			setResultsLocation(response);
