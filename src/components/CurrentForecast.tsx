@@ -1,21 +1,34 @@
 import styles from "../scss/CurrentForecast.scss";
 import weatherIcon from "../../images/Shower.png";
+import { WeatherContext } from "./WeatherProvider";
+import { createDate, getImagePath } from "../utils/utils";
 
 const CurrentForecast = React.memo(() => {
+	const { state } = React.useContext(WeatherContext);
+	const firstvalue = state.consolidated_weather[0];
+	const { title } = state;
+	console.log(state);
+
 	return (
 		<article className={styles.weatherContainer}>
-			<img src={weatherIcon} alt="Snow" width="150" />
+			<img
+				src={
+					firstvalue ? getImagePath(firstvalue.weather_state_abbr) : weatherIcon
+				}
+				alt="Snow"
+				width="150"
+			/>
 			<h1 className={styles.temperature}>
-				10
+				{firstvalue && Math.floor(firstvalue.the_temp ?? 0)}
 				<sub>&deg;C</sub>
 			</h1>
 
 			<section className={styles.weatherInformation}>
-				<h4 className={styles.weather}>Shower</h4>
+				<h4 className={styles.weather}>{firstvalue.weather_state_name}</h4>
 				<div className={styles.weatherDate}>
 					<span>Today</span>
 					<sub className={styles.dot}> . </sub>
-					<span> Fri, 5 Jun</span>
+					<span>{createDate()}</span>
 				</div>
 				<div className={styles.weatherLocation}>
 					<svg
@@ -31,7 +44,7 @@ const CurrentForecast = React.memo(() => {
 							<path d="m407.579 87.677c-31.073-53.624-86.265-86.385-147.64-87.637-2.62-.054-5.257-.054-7.878 0-61.374 1.252-116.566 34.013-147.64 87.637-31.762 54.812-32.631 120.652-2.325 176.123l126.963 232.387c.057.103.114.206.173.308 5.586 9.709 15.593 15.505 26.77 15.505 11.176 0 21.183-5.797 26.768-15.505.059-.102.116-.205.173-.308l126.963-232.387c30.304-55.471 29.435-121.311-2.327-176.123zm-151.579 144.323c-39.701 0-72-32.299-72-72s32.299-72 72-72 72 32.299 72 72-32.298 72-72 72z" />
 						</g>
 					</svg>
-					<span>Nairobi</span>
+					<span>{title}</span>
 				</div>
 			</section>
 		</article>
