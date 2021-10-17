@@ -1,14 +1,20 @@
-import { location } from "../types/types";
+import { Location } from "../types/types";
 
-export const useAbortFetch = (location: string): [] | location[] => {
-	const [resultslocation, setResultLocations] = React.useState<[] | location[]>(
-		[]
-	);
+export const useAbortFetch = (
+	location: string,
+	setIsPending?: React.Dispatch<React.SetStateAction<boolean>>
+) => {
+	const [resultslocation, setResultsLocation] = React.useState<
+		Location[] | null
+	>([]);
+	const [error, setError] = React.useState("");
 
 	React.useEffect(() => {
 		if (location === "") {
+			setResultsLocation([]);
 			return;
 		}
+		setIsPending && setIsPending(true);
 		const controller = new AbortController();
 
 		const { signal } = controller;
@@ -17,21 +23,29 @@ export const useAbortFetch = (location: string): [] | location[] => {
 				`https://www.metaweather.com/api/location/search/?query=${location}`,
 				{ signal }
 			);
-			let response = await result.json();
-
-			setResultLocations(response);
+			const response = await result.json();
+			setResultsLocation(response);
+			setIsPending && setIsPending(false);
 		};
+
 		fetchLocation().catch((error) => {
 			let err = error as Error;
 			if (err.name === "AbortError") {
-				// console.log("Req cancelled");
+				setError("");
+			} else {
+				setResultsLocation(null);
+				setError(err.message);
+				setIsPending && setIsPending(false);
 			}
 		});
 
 		return () => {
 			controller.abort();
 		};
-	}, [location]);
+	}, [location, setIsPending]);
 
-	return resultslocation;
+	return {
+		data: resultslocation,
+		error,
+	};
 };
