@@ -7,7 +7,6 @@ const CurrentForecast = React.memo(() => {
 	const { state } = React.useContext(WeatherContext);
 	const firstvalue = state.consolidated_weather[0];
 	const { title } = state;
-	console.log(state);
 
 	return (
 		<article className={styles.weatherContainer}>

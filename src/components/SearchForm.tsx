@@ -10,7 +10,7 @@ const searchWeather = async (event: React.FormEvent<FormElement>) => {
 
 const SearchForm = ({ closeContainer }: SearchFormProps) => {
 	const [location, setLocation] = React.useState("");
-	const render = React.useRef(0);
+
 	const clear = () => {
 		closeContainer();
 		setLocation("");
@@ -18,7 +18,6 @@ const SearchForm = ({ closeContainer }: SearchFormProps) => {
 	return (
 		<>
 			<section className={styles.searchBar}>
-				{console.log(render.current++, "from SearchForm")}
 				<h4 className={styles.hidden}>Search Bar</h4>
 				<button className={styles.closeBtn} onClick={clear}>
 					<img src={closeIcon} alt="Close Menu" />
