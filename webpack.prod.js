@@ -1,8 +1,8 @@
 const path = require("path");
 const { merge } = require("webpack-merge");
 const common = require("./webpack.common");
-const webpackBundleAnalyzer =
-	require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
+// const webpackBundleAnalyzer =
+// 	require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 /** @type {import('webpack').Configuration} */
@@ -38,7 +38,7 @@ module.exports = merge(common, {
 		new MiniCssExtractPlugin({
 			filename: "[name].[contenthash].css",
 		}),
-		new webpackBundleAnalyzer(),
+		// new webpackBundleAnalyzer(),
 	],
 	optimization: {
 		splitChunks: {
