@@ -1,11 +1,11 @@
-import { Location } from "../types/types";
+import { WeatherLocation } from "../types/types";
 
 export const useAbortFetch = (
 	location: string,
 	setIsPending?: React.Dispatch<React.SetStateAction<boolean>>
 ) => {
 	const [resultslocation, setResultsLocation] = React.useState<
-		Location[] | null
+		WeatherLocation[] | null
 	>([]);
 	const [error, setError] = React.useState("");
 
@@ -19,10 +19,10 @@ export const useAbortFetch = (
 
 		const { signal } = controller;
 		let fetchLocation = async () => {
-			let result = await fetch(
-				`https://www.metaweather.com/api/location/search/?query=${location}`,
-				{ signal, method: "GET", mode: "cors" }
-			);
+			let result = await fetch(`${API}/getwoeid/${location}`, {
+				signal,
+				method: "GET",
+			});
 			const response = await result.json();
 			setResultsLocation(response);
 			setIsPending && setIsPending(false);

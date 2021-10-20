@@ -15,9 +15,8 @@ const fetchWeather = async (
 ): Promise<{ data: WeatherObject | null; error: string }> => {
 	try {
 		const response = await (
-			await fetch(`https://www.metaweather.com/api/location/${woeid}/`, {
+			await fetch(`${API}/getweather/${woeid}`, {
 				method: "GET",
-				mode: "cors",
 			})
 		)
 			.json()

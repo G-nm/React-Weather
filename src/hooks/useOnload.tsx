@@ -13,9 +13,8 @@ const useOnload = (
 		const getCity = async () => {
 			try {
 				const response: { city: string } = await (
-					await fetch("https://geolocation-db.com/json", {
+					await fetch(`${API}/getlocation`, {
 						method: "GET",
-						mode: "cors",
 					})
 				).json();
 
