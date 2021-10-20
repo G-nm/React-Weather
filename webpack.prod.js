@@ -1,8 +1,7 @@
 const path = require("path");
 const { merge } = require("webpack-merge");
 const common = require("./webpack.common");
-// const webpackBundleAnalyzer =
-// 	require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
+const webpack = require("webpack");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 /** @type {import('webpack').Configuration} */
@@ -43,7 +42,9 @@ module.exports = merge(common, {
 		new MiniCssExtractPlugin({
 			filename: "[name].[contenthash].css",
 		}),
-		// new webpackBundleAnalyzer(),
+		new webpack.DefinePlugin({
+			API: JSON.stringify("https://react-weather-server-app.herokuapp.com"),
+		}),
 	],
 	optimization: {
 		splitChunks: {
