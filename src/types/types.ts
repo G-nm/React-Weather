@@ -8,7 +8,7 @@ type FormElements = HTMLFormControlsCollection & {
 export type FormElement = HTMLFormElement & {
 	readonly elements: FormElements;
 };
-export type Location = {
+export type WeatherLocation = {
 	title: string;
 	woeid: string | number;
 	[key: string]: any;
