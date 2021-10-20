@@ -1,26 +1,28 @@
 import styles from "../scss/SearchResults.scss";
-// import { WeatherContext } from "./WeatherProvider";
-import { useAbortFetch } from "../hooks/useAbortFetch";
 import ErrorComponent from "./ErrorComponent";
 import { fetchWeather } from "../utils/utils";
 import { WeatherContext } from "./WeatherProvider";
 import { Weather } from "../reducers/reducer";
+import { WeatherLocation } from "../types/types";
 
 let count = false;
 const SearchResults = ({
-	location,
 	closeContainer,
+	Locations,
 }: {
-	location: string;
+	Locations: {
+		data: WeatherLocation[] | null;
+		error: string;
+		isPending: boolean;
+	};
 	closeContainer: () => void;
 }) => {
-	const [isPending, setIsPending] = React.useState(false);
-	const { data, error } = useAbortFetch(location, setIsPending);
+	const { isPending, data, error } = Locations;
 	const { dispatch } = React.useContext(WeatherContext);
 
 	const getWeather = async (woeid: string | number) => {
-		const { data } = await fetchWeather(woeid);
-		data && dispatch({ type: Weather.Add, payload: data });
+		const { data: location } = await fetchWeather(woeid);
+		location && dispatch({ type: Weather.Add, payload: location });
 		closeContainer();
 	};
 
