@@ -8,3 +8,4 @@ declare module "*.svg" {
 	const value: any;
 	export = value;
 }
+declare var API: string;
