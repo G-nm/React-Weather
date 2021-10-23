@@ -30,15 +30,17 @@
 	width: min(90%, 730px);
 	margin: 0 auto;
 }
+
 @media (min-width: 1025px) {
 	.maincontent {
 		display: grid;
-		grid-template-columns: 459px 1fr;
+		grid-template-columns: 0.3fr 1fr;
 	}
 	.sidebarcontent {
 		// max-height: 100vh;
 		min-height: 80%;
 		width: 80%;
+		max-width: 1240px;
 		margin: auto;
 	}
 }
