@@ -13,6 +13,7 @@
 	"keywords": [],
 	"author": "",
 	"license": "ISC",
+	"homepage": "https://react-weather.pages.dev/",
 	"dependencies": {
 		"axios": "^0.23.0",
 		"react": "^17.0.2",
